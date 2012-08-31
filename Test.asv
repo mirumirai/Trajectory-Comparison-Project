@@ -31,14 +31,4 @@ A = 1:10 % 1-D array
 ind = [1 4 7] % indices to be removed
 A(ind) = [] % remove
 %%
-%plot multiple tubes on same graph
-figure; hold on;
-trialsToPlot = testing2{1}; %insert trial list here
-for i = 1:length(trialsToPlot)
-    n = trialsToPlot(i);
-    x = Data(n).Parameters.TrialTubeParameters.trajectory(:,1);
-    y = Data(n).Parameters.TrialTubeParameters.trajectory(:,2);
-    plot(x,y);
-    %plot start with green
-    plot(Data(n).Parameters.TrialTubeParameters.trajectory(1,1), Data(n).Parameters.TrialTubeParameters.trajectory(1,2),'o');
-end
+testing = sortByStartPoint(Data)
