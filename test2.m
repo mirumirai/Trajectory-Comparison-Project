@@ -1,1 +1,1 @@
-testing = sortByStartPoint(Data)
+trimmedList = trimList(Data, startPtData{1}, 'Parameters.TrialTubeParameters.tubeType', [0 5])

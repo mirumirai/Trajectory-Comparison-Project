@@ -18,6 +18,9 @@ git add foo.m
 % Commit your changes to a new branch, with comments
 git commit -m 'Created new file, foo.m'
 
+%Push to my github!
+git remote add origin https://github.com/mirumirai/Trajectory-Comparison-Project.git
+git push -u origin master
 
 % Other useful commands (replace ellipses with appropriate args)
 git checkout ...       % To return to an earlier node in branch

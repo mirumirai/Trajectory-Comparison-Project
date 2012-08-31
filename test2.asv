@@ -1,0 +1,1 @@
+trimmedList = trimList(dataList, 'Overview.trialStatus', [0], 'Parameters.TrialTubeParameters.tubeType", [0 5])

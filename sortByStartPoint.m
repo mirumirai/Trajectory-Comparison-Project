@@ -3,7 +3,7 @@
 %Should only have 1 input arg to manually specify. Varargin is for the 
 %recursion. 
 %
-function[dataStartPtSorted] = sortByStartPoint(Data, varargin)
+function [dataStartPtSorted] = sortByStartPoint(Data, varargin)
     switch nargin
         case 1
             trialList = [1:length(Data)];
@@ -21,7 +21,7 @@ function[dataStartPtSorted] = sortByStartPoint(Data, varargin)
             dataStartPtSorted{end+1}=trialList(1);
             
         otherwise
-            error('Too many inputs to sortByStartPoint()');
+            error('Wrong number of inputs');
     end
     
     %make the first trial easier to reference instead of typing sorted{end}(1)
