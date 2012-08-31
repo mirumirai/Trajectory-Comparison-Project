@@ -33,11 +33,9 @@ A(ind) = [] % remove
 %%
 %plot multiple tubes on same graph with decreasing thickness and changing color
 figure; hold on;
-trialsToPlot = trimmedList; %insert trial list here
+trialsToPlot = groupedData{2,8}; %insert trial list here
 thickness = 20;
-red = 1;
-[green, blue] = deal(0);
-rainbow = [red green blue];
+rainbow = genRandColor;
 for i = 1:length(trialsToPlot)
     n = trialsToPlot(i);
     x = Data(n).Parameters.TrialTubeParameters.trajectory(:,1);
@@ -46,17 +44,8 @@ for i = 1:length(trialsToPlot)
     if thickness ~= 1
         thickness = thickness-1;
     end
-    if red > .2
-        red = red - .1;
-    end
-    if blue < .9
-        blue = blue + .1;
-    end
-    if green < .8
-        green = green + .2;
-    end
-    rainbow = [red green blue];    
-    %plot start with circle
+    rainbow = genRandColor;
+    %plot start location with circle
     plot(Data(n).Parameters.TrialTubeParameters.trajectory(1,1), Data(n).Parameters.TrialTubeParameters.trajectory(1,2),'o');
 end
 %%

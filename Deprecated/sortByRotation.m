@@ -1,3 +1,4 @@
+%After making trimList, this function is redundant.
 %Returns trial numbers in a cell array with 2 lists. 1st list has
 %0-deg trials, second has 179-deg trials.
 function [dataRotSorted] = sortByRotation(Data)

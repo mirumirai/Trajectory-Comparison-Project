@@ -1,5 +1,24 @@
+clear;
+%if not loaded yet,
 load('20110420tubes.mat')
-rotationData = sortByRotation(Data);
-startPtData = sortByStartPoint(Data);
 
-%
+startPtData = sortByStartPoint(Data);
+groupedData = cell(0);
+%loop through startPtData. Trim unsuccessful, 0 & 5 tubetype, and 180
+%degrees. Then trim 0 degrees. Not efficient, but it works.
+colCount = 1;
+for i = 1:length(startPtData)
+    %trim and add to horizontal end of groupedData
+    groupedData{colCount} = trimList(Data, startPtData{i},...
+        'Parameters.TrialTubeParameters.rotation', 179,...
+        'Parameters.TrialTubeParameters.tubeType', [0 5],...
+        'Overview.trialStatus', 0);
+    groupedData{2,colCount} = trimList(Data, startPtData{i},...
+        'Parameters.TrialTubeParameters.rotation', 179,...
+        'Parameters.TrialTubeParameters.tubeType', [0 5],...
+        'Overview.trialStatus', 0);
+    colCount = colCount + 1;
+end
+
+%example plot of t
+plotTubes
